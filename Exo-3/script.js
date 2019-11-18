@@ -21,7 +21,7 @@ const emptyTriangle = () => {
 };
 
 const fullTriangle = () => {
-  let lineargradient = context.createLinearGradient(100, 200, 150, 100);
+  let lineargradient = context.createLinearGradient(100, 200, 150, 100); //dégradé
   lineargradient.addColorStop(0, "blue");
   lineargradient.addColorStop(1, "purple");
 
@@ -36,7 +36,7 @@ const fullTriangle = () => {
 const emptyTriangle2 = () => {
   context.lineWidth = "5";
   context.strokeStyle = "green";
-  context.lineJoin = "round";
+  context.lineJoin = "round"; // arrondi
   context.beginPath();
   context.moveTo(200, 300);
   context.lineTo(400, 300);
