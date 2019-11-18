@@ -21,9 +21,10 @@ const emptyTriangle = () => {
 };
 
 const fullTriangle = () => {
-  let lineargradient = context.createLinearGradient(100, 200, 150, 100); //dégradé
+  let lineargradient = context.createLinearGradient(100, 200, 100, 100); //dégradé
   lineargradient.addColorStop(0, "blue");
-  lineargradient.addColorStop(1, "purple");
+  lineargradient.addColorStop(0.5, "purple");
+  lineargradient.addColorStop(1, "#D619D6");
 
   context.fillStyle = lineargradient;
   context.beginPath();
