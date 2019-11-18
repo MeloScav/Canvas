@@ -48,8 +48,30 @@ const draw = () => {
       context.moveTo(450, 400);
       context.lineTo(450, 340);
       context.stroke();
+
+      context.beginPath();
+      context.moveTo(220, 70);
+      context.lineTo(380, 70);
+      context.stroke();
+
+      context.beginPath();
+      context.moveTo(220, 220);
+      context.lineTo(380, 220);
+      context.lineTo(380, 160);
+      context.lineTo(350, 160);
+      context.moveTo(225, 227);
+      context.lineTo(225, 160);
+      context.lineTo(255, 160);
+      context.stroke();
     };
     wallTrap();
+
+    const ghostDraw = () => {
+      context.beginPath();
+      context.arc(100, 80, 10, 0, 2 * Math.PI);
+      context.fill();
+    };
+    ghostDraw();
 
     // for (var i = 0; i < 25; i++) {
     //   context.fillRect(30 + i * 16, 30, 4, 4);
