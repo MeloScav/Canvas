@@ -196,16 +196,112 @@ const draw = () => {
     };
     draw();
 
-    // for (var i = 0; i < 25; i++) {
-    //   context.fillRect(30 + i * 16, 30, 4, 4);
-    // }
+    //Ligne 1
+    for (var i = 0; i < 5; i++) {
+      context.fillRect(40 + i * 16, 35, 4, 4);
+    }
+    for (var i = 0; i < 17; i++) {
+      context.fillRect(170 + i * 16, 35, 4, 4);
+    }
+    for (var i = 0; i < 7; i++) {
+      context.fillRect(470 + i * 16, 35, 4, 4);
+    }
 
-    // for (i = 0; i < 6; i++) {
-    //   context.fillRect(115, 51 + i * 16, 4, 4);
-    // }
+    //Ligne 2 centre
+    for (var i = 0; i < 11; i++) {
+      context.fillRect(220 + i * 16, 122, 4, 4);
+    }
 
-    // for (i = 0; i < 8; i++) {
-    //   context.fillRect(51 + i * 16, 99, 4, 4);
-    // }
+    //ligne
+    for (var i = 0; i < 2; i++) {
+      context.fillRect(440 + i * 16, 123, 4, 4);
+    }
+
+    //ligne
+    for (var i = 0; i < 3; i++) {
+      context.fillRect(130 + i * 16, 123, 4, 4);
+    }
+    for (var i = 0; i < 3; i++) {
+      context.fillRect(130 + i * 16, 187, 4, 4);
+    }
+
+    //Ligne
+    for (var i = 0; i < 2; i++) {
+      context.fillRect(512 + i * 16, 188, 4, 4);
+    }
+    for (var i = 0; i < 2; i++) {
+      context.fillRect(440 + i * 16, 188, 4, 4);
+    }
+
+    //Ligne 3 centre
+    for (var i = 0; i < 11; i++) {
+      context.fillRect(220 + i * 16, 252, 4, 4);
+    }
+    //Ligne 3
+    for (var i = 0; i < 2; i++) {
+      context.fillRect(440 + i * 16, 252, 4, 4);
+    }
+    //Ligne 3
+    for (var i = 0; i < 2; i++) {
+      context.fillRect(512 + i * 16, 252, 4, 4);
+    }
+
+    //Ligne 4 centre
+    for (var i = 0; i < 11; i++) {
+      context.fillRect(220 + i * 16, 348, 4, 4);
+    }
+
+    // Ligne du bas 1
+    for (var i = 0; i < 7; i++) {
+      context.fillRect(63 + i * 16, 316, 4, 4);
+    }
+
+    // Ligne du bas 2
+    for (var i = 0; i < 4; i++) {
+      context.fillRect(63 + i * 16, 365, 4, 4);
+    }
+    // Ligne du bas droite
+    for (var i = 0; i < 2; i++) {
+      context.fillRect(512 + i * 16, 365, 4, 4);
+    }
+
+    // //vertical 1
+    for (i = 0; i < 20; i++) {
+      context.fillRect(40, 60 + i * 16, 4, 4);
+    }
+
+    // //vertical 2
+    for (i = 0; i < 8; i++) {
+      context.fillRect(78, 140 + i * 16, 4, 4);
+    }
+
+    // //vertical 3
+    for (i = 0; i < 10; i++) {
+      context.fillRect(110, 60 + i * 16, 4, 4);
+    }
+
+    // vertical 4
+    for (i = 0; i < 20; i++) {
+      context.fillRect(186, 60 + i * 16, 4, 4);
+    }
+
+    // vertical 5
+    for (i = 0; i < 20; i++) {
+      context.fillRect(415, 60 + i * 16, 4, 4);
+    }
+
+    // vertical 6
+    for (i = 0; i < 20; i++) {
+      context.fillRect(486, 60 + i * 16, 4, 4);
+    }
+    //vertical
+    for (var i = 0; i < 2; i++) {
+      context.fillRect(440 + i * 16, 300, 4, 4);
+    }
+
+    // dernière vertical
+    for (i = 0; i < 20; i++) {
+      context.fillRect(552, 60 + i * 16, 4, 4);
+    }
   }
 };
