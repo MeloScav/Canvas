@@ -1,7 +1,7 @@
 const draw = () => {
-  var canevas = document.getElementById("canevas");
-  if (canevas.getContext) {
-    const context = canevas.getContext("2d");
+  const canvas = document.getElementById("canevas");
+  if (canvas.getContext) {
+    const context = canvas.getContext("2d");
 
     const borderCanvas = () => {
       context.lineWidth = "30";
@@ -20,10 +20,10 @@ const draw = () => {
       context.stroke();
     };
 
-    const eyesPacMan = () => {
+    const eyesPacMan = (x, y) => {
       context.beginPath();
       context.fillStyle = "black";
-      context.arc(25, 173, 2, 0, 2 * Math.PI);
+      context.arc(x, y - 7, 2, 0, 2 * Math.PI);
       context.closePath();
       context.fill();
     };
@@ -35,7 +35,7 @@ const draw = () => {
       context.arc(x, y, r, Math.PI / 7, -Math.PI / 7, false);
       context.lineTo(x, y);
       context.fill();
-      eyesPacMan();
+      eyesPacMan(x, y);
     };
 
     const wallTrap = () => {
@@ -69,10 +69,8 @@ const draw = () => {
       context.moveTo(220, 220);
       context.lineTo(380, 220);
       context.lineTo(380, 160);
-      // context.lineTo(350, 160);
       context.moveTo(225, 227);
       context.lineTo(225, 160);
-      // context.lineTo(255, 160);
       context.stroke();
     };
 
@@ -179,6 +177,118 @@ const draw = () => {
       eyesGhost(x, y);
     };
 
+    const points = () => {
+      /*  LIGNE   */
+      //Ligne 1
+      for (var i = 0; i < 5; i++) {
+        context.fillRect(40 + i * 16, 35, 4, 4);
+      }
+      for (var i = 0; i < 17; i++) {
+        context.fillRect(170 + i * 16, 35, 4, 4);
+      }
+      for (var i = 0; i < 7; i++) {
+        context.fillRect(470 + i * 16, 35, 4, 4);
+      }
+
+      //Ligne 2 centre
+      for (var i = 0; i < 11; i++) {
+        context.fillRect(220 + i * 16, 122, 4, 4);
+      }
+
+      //ligne
+      for (var i = 0; i < 2; i++) {
+        context.fillRect(440 + i * 16, 123, 4, 4);
+      }
+
+      //ligne
+      for (var i = 0; i < 3; i++) {
+        context.fillRect(130 + i * 16, 123, 4, 4);
+      }
+      for (var i = 0; i < 3; i++) {
+        context.fillRect(130 + i * 16, 187, 4, 4);
+      }
+
+      //Ligne
+      for (var i = 0; i < 2; i++) {
+        context.fillRect(512 + i * 16, 188, 4, 4);
+      }
+      for (var i = 0; i < 2; i++) {
+        context.fillRect(440 + i * 16, 188, 4, 4);
+      }
+
+      //Ligne 3 centre
+      for (var i = 0; i < 11; i++) {
+        context.fillRect(220 + i * 16, 252, 4, 4);
+      }
+      //Ligne 3
+      for (var i = 0; i < 2; i++) {
+        context.fillRect(440 + i * 16, 252, 4, 4);
+      }
+      //Ligne 3
+      for (var i = 0; i < 2; i++) {
+        context.fillRect(512 + i * 16, 252, 4, 4);
+      }
+
+      //Ligne 4 centre
+      for (var i = 0; i < 11; i++) {
+        context.fillRect(220 + i * 16, 348, 4, 4);
+      }
+
+      // Ligne du bas 1
+      for (var i = 0; i < 7; i++) {
+        context.fillRect(63 + i * 16, 316, 4, 4);
+      }
+
+      // Ligne du bas 2
+      for (var i = 0; i < 4; i++) {
+        context.fillRect(63 + i * 16, 365, 4, 4);
+      }
+      // Ligne du bas droite
+      for (var i = 0; i < 2; i++) {
+        context.fillRect(512 + i * 16, 365, 4, 4);
+      }
+
+      /*     VERTICAL      */
+      //vertical 1
+      for (i = 0; i < 20; i++) {
+        context.fillRect(40, 60 + i * 16, 4, 4);
+      }
+
+      // //vertical 2
+      for (i = 0; i < 8; i++) {
+        context.fillRect(78, 140 + i * 16, 4, 4);
+      }
+
+      // //vertical 3
+      for (i = 0; i < 10; i++) {
+        context.fillRect(110, 60 + i * 16, 4, 4);
+      }
+
+      // vertical 4
+      for (i = 0; i < 20; i++) {
+        context.fillRect(186, 60 + i * 16, 4, 4);
+      }
+
+      // vertical 5
+      for (i = 0; i < 20; i++) {
+        context.fillRect(415, 60 + i * 16, 4, 4);
+      }
+
+      // vertical 6
+      for (i = 0; i < 20; i++) {
+        context.fillRect(486, 60 + i * 16, 4, 4);
+      }
+      //vertical
+      for (var i = 0; i < 2; i++) {
+        context.fillRect(440 + i * 16, 300, 4, 4);
+      }
+
+      // dernière vertical
+      for (i = 0; i < 20; i++) {
+        context.fillRect(552, 60 + i * 16, 4, 4);
+      }
+    };
+
     // Dessiner le tout
     const draw = () => {
       borderCanvas();
@@ -192,116 +302,9 @@ const draw = () => {
       ghostDraw(260, 170, "rgb(214, 123, 166)");
       ghostDraw(305, 170, "rgb(189, 0, 14)");
       ghostDraw(350, 170, "rgb(1, 237, 235)");
-      pacMan(25, 180, 13);
+      pacMan(13, 190, 13);
+      points();
     };
     draw();
-
-    //Ligne 1
-    for (var i = 0; i < 5; i++) {
-      context.fillRect(40 + i * 16, 35, 4, 4);
-    }
-    for (var i = 0; i < 17; i++) {
-      context.fillRect(170 + i * 16, 35, 4, 4);
-    }
-    for (var i = 0; i < 7; i++) {
-      context.fillRect(470 + i * 16, 35, 4, 4);
-    }
-
-    //Ligne 2 centre
-    for (var i = 0; i < 11; i++) {
-      context.fillRect(220 + i * 16, 122, 4, 4);
-    }
-
-    //ligne
-    for (var i = 0; i < 2; i++) {
-      context.fillRect(440 + i * 16, 123, 4, 4);
-    }
-
-    //ligne
-    for (var i = 0; i < 3; i++) {
-      context.fillRect(130 + i * 16, 123, 4, 4);
-    }
-    for (var i = 0; i < 3; i++) {
-      context.fillRect(130 + i * 16, 187, 4, 4);
-    }
-
-    //Ligne
-    for (var i = 0; i < 2; i++) {
-      context.fillRect(512 + i * 16, 188, 4, 4);
-    }
-    for (var i = 0; i < 2; i++) {
-      context.fillRect(440 + i * 16, 188, 4, 4);
-    }
-
-    //Ligne 3 centre
-    for (var i = 0; i < 11; i++) {
-      context.fillRect(220 + i * 16, 252, 4, 4);
-    }
-    //Ligne 3
-    for (var i = 0; i < 2; i++) {
-      context.fillRect(440 + i * 16, 252, 4, 4);
-    }
-    //Ligne 3
-    for (var i = 0; i < 2; i++) {
-      context.fillRect(512 + i * 16, 252, 4, 4);
-    }
-
-    //Ligne 4 centre
-    for (var i = 0; i < 11; i++) {
-      context.fillRect(220 + i * 16, 348, 4, 4);
-    }
-
-    // Ligne du bas 1
-    for (var i = 0; i < 7; i++) {
-      context.fillRect(63 + i * 16, 316, 4, 4);
-    }
-
-    // Ligne du bas 2
-    for (var i = 0; i < 4; i++) {
-      context.fillRect(63 + i * 16, 365, 4, 4);
-    }
-    // Ligne du bas droite
-    for (var i = 0; i < 2; i++) {
-      context.fillRect(512 + i * 16, 365, 4, 4);
-    }
-
-    // //vertical 1
-    for (i = 0; i < 20; i++) {
-      context.fillRect(40, 60 + i * 16, 4, 4);
-    }
-
-    // //vertical 2
-    for (i = 0; i < 8; i++) {
-      context.fillRect(78, 140 + i * 16, 4, 4);
-    }
-
-    // //vertical 3
-    for (i = 0; i < 10; i++) {
-      context.fillRect(110, 60 + i * 16, 4, 4);
-    }
-
-    // vertical 4
-    for (i = 0; i < 20; i++) {
-      context.fillRect(186, 60 + i * 16, 4, 4);
-    }
-
-    // vertical 5
-    for (i = 0; i < 20; i++) {
-      context.fillRect(415, 60 + i * 16, 4, 4);
-    }
-
-    // vertical 6
-    for (i = 0; i < 20; i++) {
-      context.fillRect(486, 60 + i * 16, 4, 4);
-    }
-    //vertical
-    for (var i = 0; i < 2; i++) {
-      context.fillRect(440 + i * 16, 300, 4, 4);
-    }
-
-    // dernière vertical
-    for (i = 0; i < 20; i++) {
-      context.fillRect(552, 60 + i * 16, 4, 4);
-    }
   }
 };
