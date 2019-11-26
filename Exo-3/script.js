@@ -1,56 +1,79 @@
-const canvas = document.getElementById("canvas"); // On récupère le canvas
-const context = canvas.getContext("2d"); // On récupère le contexte
+const canvas = document.getElementById("canvas"); // We recover the canvas
+const context = canvas.getContext("2d"); // We recover the context
 
-const width = canvas.getAttribute("width"); // largueur canvas
-const height = canvas.getAttribute("height"); // hauteur canvas
+const width = canvas.getAttribute("width"); // Width canvas
+const height = canvas.getAttribute("height"); // Height canvas
 
-const border = () => {
-  context.stokeStyle = "green";
-  context.strokeRect(0, 0, 500, 500); // Rectangle vide
+// The border
+const border = (color, width, height) => {
+  context.lineWidth = "5";
+  context.strokeStyle = color;
+  context.strokeRect(0, 0, width, height); // Empty rectangle
 };
 
-const emptyTriangle = () => {
-  context.lineWidth = "3"; // épaisseur ligne
-  context.strokeStyle = "red"; // couleur ligne
-  context.beginPath(); // début dessin
-  context.moveTo(10, 10);
-  context.lineTo(10, 100);
-  context.lineTo(100, 10);
-  context.closePath(); // fin dessin
-  context.stroke(); // On dessine
+// Empty triangle
+const emptyTriangle = (
+  lineW,
+  color,
+  moveX,
+  moveY,
+  lineOneX,
+  lineOneY,
+  lineTwoX,
+  lineTwoY,
+  lineJ
+) => {
+  context.lineWidth = lineW; // Thickness line
+  context.strokeStyle = color; // color line
+  if (lineJ) {
+    context.lineJoin = "round";
+  } else {
+    context.lineJoin = "miter";
+  }
+  context.beginPath(); // Beginning of the drawing
+  context.moveTo(moveX, moveY);
+  context.lineTo(lineOneX, lineOneY);
+  context.lineTo(lineTwoX, lineTwoY);
+  context.closePath(); // End of the drawing
+  context.stroke(); // We draw
 };
 
-const fullTriangle = () => {
-  let lineargradient = context.createLinearGradient(100, 200, 100, 100); //dégradé
-  lineargradient.addColorStop(0, "blue");
-  lineargradient.addColorStop(0.5, "purple");
-  lineargradient.addColorStop(1, "#D619D6");
+// filled triangle
+const fullTriangle = (
+  colorOne,
+  colorTwo,
+  colorThree,
+  moveX,
+  moveY,
+  lineOneX,
+  lineOneY,
+  lineTwoX,
+  lineTwoY
+) => {
+  let lineargradient = context.createLinearGradient(100, 200, 100, 100); // Degraded
+  lineargradient.addColorStop(0, colorOne);
+  lineargradient.addColorStop(0.5, colorTwo);
+  lineargradient.addColorStop(1, colorThree);
 
   context.fillStyle = lineargradient;
   context.beginPath();
-  context.moveTo(100, 200);
-  context.lineTo(200, 200);
-  context.lineTo(150, 80);
+  context.moveTo(moveX, moveY);
+  context.lineTo(lineOneX, lineOneY);
+  context.lineTo(lineTwoX, lineTwoY);
   context.fill();
 };
 
-const emptyTriangle2 = () => {
-  context.lineWidth = "5";
-  context.strokeStyle = "green";
-  context.lineJoin = "round"; // arrondi
-  context.beginPath();
-  context.moveTo(200, 300);
-  context.lineTo(400, 300);
-  context.lineTo(350, 200);
-  context.closePath();
-  context.stroke();
-};
-
 const draw = () => {
-  border();
-  emptyTriangle();
-  fullTriangle();
-  emptyTriangle2();
+  // Draw the border
+  border("purple", width, height);
+  // Draw the empty triangle
+  // color - moveX - moveY - lineOneX - lineOneY - lineTwoX - lineTwoY - lineRound
+  emptyTriangle("3", "red", 10, 10, 10, 100, 100, 10, false);
+  // Draw the filled triangle
+  // colorOne - colorTwo - colorThree -  moveX - moveY - lineOneX - lineOneY - lineTwoX - lineTwoY
+  fullTriangle("blue", "purple", "#D619D6", 100, 200, 200, 200, 150, 80);
+  // Draw the empty triangle
+  emptyTriangle("5", "green", 200, 300, 400, 300, 350, 200, true);
 };
 
 draw();
